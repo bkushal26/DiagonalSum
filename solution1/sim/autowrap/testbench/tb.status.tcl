@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /data/kbhalera/varun_JetFinder/diagonalSum/solution1/./sim/autowrap/testbench/diagonalSum.cpp_pre.cpp.tb.cpp

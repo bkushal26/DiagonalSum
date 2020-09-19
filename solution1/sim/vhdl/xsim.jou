@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Sep 19 07:12:49 2020
+# Process ID: 4039088
+# Current directory: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl
+# Command line: xsim -mode tcl -source {xsim.dir/sum/xsim_script.tcl}
+# Log file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.log
+# Journal file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sum/xsim_script.tcl
+source sum.tcl

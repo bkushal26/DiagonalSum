@@ -1,0 +1,387 @@
+
+
+================================================================
+== Vivado HLS Report for 'makeZero'
+================================================================
+* Date:           Sat Sep 19 06:52:42 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        diagonalSum
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcvu9p-flgc2104-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   2.78|     0.802|        0.83|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    4|    4|    5|    5| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 5, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 5, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.80>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%upper_sum_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %upper_sum)" [diagonalSum.cpp:44]   --->   Operation 6 'read' 'upper_sum_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%lower_sum_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %lower_sum)" [diagonalSum.cpp:44]   --->   Operation 7 'read' 'lower_sum_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 12, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind" [diagonalSum.cpp:46]   --->   Operation 8 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.80ns)   --->   "%icmp_ln49 = icmp sgt i32 %lower_sum_read, %upper_sum_read" [diagonalSum.cpp:49]   --->   Operation 9 'icmp' 'icmp_ln49' <Predicate = true> <Delay = 0.80> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "br i1 %icmp_ln49, label %.preheader3.0, label %.preheader2.0" [diagonalSum.cpp:49]   --->   Operation 10 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%mat_0_addr = getelementptr [9 x i32]* %mat_0, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 11 'getelementptr' 'mat_0_addr' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr, align 4" [diagonalSum.cpp:67]   --->   Operation 12 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%mat_1_addr_9 = getelementptr [9 x i32]* %mat_1, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 13 'getelementptr' 'mat_1_addr_9' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_9, align 4" [diagonalSum.cpp:67]   --->   Operation 14 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%mat_2_addr_10 = getelementptr [9 x i32]* %mat_2, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 15 'getelementptr' 'mat_2_addr_10' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_10, align 4" [diagonalSum.cpp:67]   --->   Operation 16 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%mat_3_addr_11 = getelementptr [9 x i32]* %mat_3, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 17 'getelementptr' 'mat_3_addr_11' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_11, align 4" [diagonalSum.cpp:67]   --->   Operation 18 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%mat_4_addr_12 = getelementptr [9 x i32]* %mat_4, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 19 'getelementptr' 'mat_4_addr_12' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_12, align 4" [diagonalSum.cpp:67]   --->   Operation 20 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%mat_5_addr_13 = getelementptr [9 x i32]* %mat_5, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 21 'getelementptr' 'mat_5_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 22 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%mat_6_addr_14 = getelementptr [9 x i32]* %mat_6, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 23 'getelementptr' 'mat_6_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 24 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%mat_7_addr_15 = getelementptr [9 x i32]* %mat_7, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 25 'getelementptr' 'mat_7_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 26 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%mat_8_addr_16 = getelementptr [9 x i32]* %mat_8, i64 0, i64 0" [diagonalSum.cpp:67]   --->   Operation 27 'getelementptr' 'mat_8_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 28 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%mat_0_addr_9 = getelementptr [9 x i32]* %mat_0, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 29 'getelementptr' 'mat_0_addr_9' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_9, align 4" [diagonalSum.cpp:67]   --->   Operation 30 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%mat_1_addr_10 = getelementptr [9 x i32]* %mat_1, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 31 'getelementptr' 'mat_1_addr_10' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_10, align 4" [diagonalSum.cpp:67]   --->   Operation 32 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%mat_2_addr_11 = getelementptr [9 x i32]* %mat_2, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 33 'getelementptr' 'mat_2_addr_11' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_11, align 4" [diagonalSum.cpp:67]   --->   Operation 34 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%mat_3_addr_12 = getelementptr [9 x i32]* %mat_3, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 35 'getelementptr' 'mat_3_addr_12' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_12, align 4" [diagonalSum.cpp:67]   --->   Operation 36 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%mat_4_addr_13 = getelementptr [9 x i32]* %mat_4, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 37 'getelementptr' 'mat_4_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 38 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%mat_5_addr_14 = getelementptr [9 x i32]* %mat_5, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 39 'getelementptr' 'mat_5_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 40 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%mat_6_addr_15 = getelementptr [9 x i32]* %mat_6, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 41 'getelementptr' 'mat_6_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 42 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%mat_7_addr_16 = getelementptr [9 x i32]* %mat_7, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 43 'getelementptr' 'mat_7_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 44 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%mat_8_addr_17 = getelementptr [9 x i32]* %mat_8, i64 0, i64 1" [diagonalSum.cpp:67]   --->   Operation 45 'getelementptr' 'mat_8_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 46 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%mat_1_addr = getelementptr [9 x i32]* %mat_1, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 47 'getelementptr' 'mat_1_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 48 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%mat_2_addr = getelementptr [9 x i32]* %mat_2, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 49 'getelementptr' 'mat_2_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 50 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%mat_3_addr = getelementptr [9 x i32]* %mat_3, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 51 'getelementptr' 'mat_3_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 52 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%mat_4_addr = getelementptr [9 x i32]* %mat_4, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 53 'getelementptr' 'mat_4_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 54 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%mat_5_addr = getelementptr [9 x i32]* %mat_5, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 55 'getelementptr' 'mat_5_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 56 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%mat_6_addr = getelementptr [9 x i32]* %mat_6, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 57 'getelementptr' 'mat_6_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 58 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%mat_7_addr = getelementptr [9 x i32]* %mat_7, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 59 'getelementptr' 'mat_7_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 60 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%mat_8_addr = getelementptr [9 x i32]* %mat_8, i64 0, i64 0" [diagonalSum.cpp:57]   --->   Operation 61 'getelementptr' 'mat_8_addr' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr, align 4" [diagonalSum.cpp:57]   --->   Operation 62 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%mat_2_addr_9 = getelementptr [9 x i32]* %mat_2, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 63 'getelementptr' 'mat_2_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 64 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%mat_3_addr_9 = getelementptr [9 x i32]* %mat_3, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 65 'getelementptr' 'mat_3_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 66 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%mat_4_addr_9 = getelementptr [9 x i32]* %mat_4, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 67 'getelementptr' 'mat_4_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 68 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%mat_5_addr_9 = getelementptr [9 x i32]* %mat_5, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 69 'getelementptr' 'mat_5_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 70 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%mat_6_addr_9 = getelementptr [9 x i32]* %mat_6, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 71 'getelementptr' 'mat_6_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 72 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%mat_7_addr_9 = getelementptr [9 x i32]* %mat_7, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 73 'getelementptr' 'mat_7_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 74 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%mat_8_addr_9 = getelementptr [9 x i32]* %mat_8, i64 0, i64 1" [diagonalSum.cpp:57]   --->   Operation 75 'getelementptr' 'mat_8_addr_9' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_9, align 4" [diagonalSum.cpp:57]   --->   Operation 76 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 2 <SV = 1> <Delay = 0.73>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%mat_0_addr_10 = getelementptr [9 x i32]* %mat_0, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 77 'getelementptr' 'mat_0_addr_10' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_10, align 4" [diagonalSum.cpp:67]   --->   Operation 78 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%mat_1_addr_11 = getelementptr [9 x i32]* %mat_1, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 79 'getelementptr' 'mat_1_addr_11' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_11, align 4" [diagonalSum.cpp:67]   --->   Operation 80 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%mat_2_addr_12 = getelementptr [9 x i32]* %mat_2, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 81 'getelementptr' 'mat_2_addr_12' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 82 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_12, align 4" [diagonalSum.cpp:67]   --->   Operation 82 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%mat_3_addr_13 = getelementptr [9 x i32]* %mat_3, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 83 'getelementptr' 'mat_3_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 84 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%mat_4_addr_14 = getelementptr [9 x i32]* %mat_4, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 85 'getelementptr' 'mat_4_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 86 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%mat_5_addr_15 = getelementptr [9 x i32]* %mat_5, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 87 'getelementptr' 'mat_5_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 88 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%mat_6_addr_16 = getelementptr [9 x i32]* %mat_6, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 89 'getelementptr' 'mat_6_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 90 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%mat_7_addr_17 = getelementptr [9 x i32]* %mat_7, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 91 'getelementptr' 'mat_7_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 92 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%mat_8_addr_18 = getelementptr [9 x i32]* %mat_8, i64 0, i64 2" [diagonalSum.cpp:67]   --->   Operation 93 'getelementptr' 'mat_8_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 94 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%mat_0_addr_11 = getelementptr [9 x i32]* %mat_0, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 95 'getelementptr' 'mat_0_addr_11' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_11, align 4" [diagonalSum.cpp:67]   --->   Operation 96 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "%mat_1_addr_12 = getelementptr [9 x i32]* %mat_1, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 97 'getelementptr' 'mat_1_addr_12' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 98 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_12, align 4" [diagonalSum.cpp:67]   --->   Operation 98 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%mat_2_addr_13 = getelementptr [9 x i32]* %mat_2, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 99 'getelementptr' 'mat_2_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 100 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 100 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%mat_3_addr_14 = getelementptr [9 x i32]* %mat_3, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 101 'getelementptr' 'mat_3_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 102 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 102 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 103 [1/1] (0.00ns)   --->   "%mat_4_addr_15 = getelementptr [9 x i32]* %mat_4, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 103 'getelementptr' 'mat_4_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 104 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 104 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "%mat_5_addr_16 = getelementptr [9 x i32]* %mat_5, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 105 'getelementptr' 'mat_5_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 106 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%mat_6_addr_17 = getelementptr [9 x i32]* %mat_6, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 107 'getelementptr' 'mat_6_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 108 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%mat_7_addr_18 = getelementptr [9 x i32]* %mat_7, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 109 'getelementptr' 'mat_7_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 110 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 111 [1/1] (0.00ns)   --->   "%mat_8_addr_19 = getelementptr [9 x i32]* %mat_8, i64 0, i64 3" [diagonalSum.cpp:67]   --->   Operation 111 'getelementptr' 'mat_8_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 112 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 112 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 113 [1/1] (0.00ns)   --->   "%mat_3_addr_10 = getelementptr [9 x i32]* %mat_3, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 113 'getelementptr' 'mat_3_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 114 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 114 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 115 [1/1] (0.00ns)   --->   "%mat_4_addr_10 = getelementptr [9 x i32]* %mat_4, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 115 'getelementptr' 'mat_4_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 116 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 116 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 117 [1/1] (0.00ns)   --->   "%mat_5_addr_10 = getelementptr [9 x i32]* %mat_5, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 117 'getelementptr' 'mat_5_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 118 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 118 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 119 [1/1] (0.00ns)   --->   "%mat_6_addr_10 = getelementptr [9 x i32]* %mat_6, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 119 'getelementptr' 'mat_6_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 120 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 120 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 121 [1/1] (0.00ns)   --->   "%mat_7_addr_10 = getelementptr [9 x i32]* %mat_7, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 121 'getelementptr' 'mat_7_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 122 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 122 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 123 [1/1] (0.00ns)   --->   "%mat_8_addr_10 = getelementptr [9 x i32]* %mat_8, i64 0, i64 2" [diagonalSum.cpp:57]   --->   Operation 123 'getelementptr' 'mat_8_addr_10' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 124 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_10, align 4" [diagonalSum.cpp:57]   --->   Operation 124 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 125 [1/1] (0.00ns)   --->   "%mat_4_addr_11 = getelementptr [9 x i32]* %mat_4, i64 0, i64 3" [diagonalSum.cpp:57]   --->   Operation 125 'getelementptr' 'mat_4_addr_11' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 126 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_11, align 4" [diagonalSum.cpp:57]   --->   Operation 126 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 127 [1/1] (0.00ns)   --->   "%mat_5_addr_11 = getelementptr [9 x i32]* %mat_5, i64 0, i64 3" [diagonalSum.cpp:57]   --->   Operation 127 'getelementptr' 'mat_5_addr_11' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 128 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_11, align 4" [diagonalSum.cpp:57]   --->   Operation 128 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 129 [1/1] (0.00ns)   --->   "%mat_6_addr_11 = getelementptr [9 x i32]* %mat_6, i64 0, i64 3" [diagonalSum.cpp:57]   --->   Operation 129 'getelementptr' 'mat_6_addr_11' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 130 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_11, align 4" [diagonalSum.cpp:57]   --->   Operation 130 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 131 [1/1] (0.00ns)   --->   "%mat_7_addr_11 = getelementptr [9 x i32]* %mat_7, i64 0, i64 3" [diagonalSum.cpp:57]   --->   Operation 131 'getelementptr' 'mat_7_addr_11' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 132 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_11, align 4" [diagonalSum.cpp:57]   --->   Operation 132 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_2 : Operation 133 [1/1] (0.00ns)   --->   "%mat_8_addr_11 = getelementptr [9 x i32]* %mat_8, i64 0, i64 3" [diagonalSum.cpp:57]   --->   Operation 133 'getelementptr' 'mat_8_addr_11' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_2 : Operation 134 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_11, align 4" [diagonalSum.cpp:57]   --->   Operation 134 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 3 <SV = 2> <Delay = 0.73>
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "%mat_0_addr_12 = getelementptr [9 x i32]* %mat_0, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 135 'getelementptr' 'mat_0_addr_12' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 136 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_12, align 4" [diagonalSum.cpp:67]   --->   Operation 136 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "%mat_1_addr_13 = getelementptr [9 x i32]* %mat_1, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 137 'getelementptr' 'mat_1_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 138 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 138 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%mat_2_addr_14 = getelementptr [9 x i32]* %mat_2, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 139 'getelementptr' 'mat_2_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 140 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 140 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 141 [1/1] (0.00ns)   --->   "%mat_3_addr_15 = getelementptr [9 x i32]* %mat_3, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 141 'getelementptr' 'mat_3_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 142 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 142 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 143 [1/1] (0.00ns)   --->   "%mat_4_addr_16 = getelementptr [9 x i32]* %mat_4, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 143 'getelementptr' 'mat_4_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 144 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 144 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 145 [1/1] (0.00ns)   --->   "%mat_5_addr_17 = getelementptr [9 x i32]* %mat_5, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 145 'getelementptr' 'mat_5_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 146 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 146 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 147 [1/1] (0.00ns)   --->   "%mat_6_addr_18 = getelementptr [9 x i32]* %mat_6, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 147 'getelementptr' 'mat_6_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 148 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 148 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 149 [1/1] (0.00ns)   --->   "%mat_7_addr_19 = getelementptr [9 x i32]* %mat_7, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 149 'getelementptr' 'mat_7_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 150 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 150 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 151 [1/1] (0.00ns)   --->   "%mat_8_addr_20 = getelementptr [9 x i32]* %mat_8, i64 0, i64 4" [diagonalSum.cpp:67]   --->   Operation 151 'getelementptr' 'mat_8_addr_20' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 152 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_20, align 4" [diagonalSum.cpp:67]   --->   Operation 152 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 153 [1/1] (0.00ns)   --->   "%mat_0_addr_13 = getelementptr [9 x i32]* %mat_0, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 153 'getelementptr' 'mat_0_addr_13' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 154 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_13, align 4" [diagonalSum.cpp:67]   --->   Operation 154 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 155 [1/1] (0.00ns)   --->   "%mat_1_addr_14 = getelementptr [9 x i32]* %mat_1, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 155 'getelementptr' 'mat_1_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 156 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 156 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 157 [1/1] (0.00ns)   --->   "%mat_2_addr_15 = getelementptr [9 x i32]* %mat_2, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 157 'getelementptr' 'mat_2_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 158 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 158 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 159 [1/1] (0.00ns)   --->   "%mat_3_addr_16 = getelementptr [9 x i32]* %mat_3, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 159 'getelementptr' 'mat_3_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 160 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 160 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 161 [1/1] (0.00ns)   --->   "%mat_4_addr_17 = getelementptr [9 x i32]* %mat_4, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 161 'getelementptr' 'mat_4_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 162 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 162 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 163 [1/1] (0.00ns)   --->   "%mat_5_addr_18 = getelementptr [9 x i32]* %mat_5, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 163 'getelementptr' 'mat_5_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 164 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 164 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 165 [1/1] (0.00ns)   --->   "%mat_6_addr_19 = getelementptr [9 x i32]* %mat_6, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 165 'getelementptr' 'mat_6_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 166 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 166 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 167 [1/1] (0.00ns)   --->   "%mat_7_addr_20 = getelementptr [9 x i32]* %mat_7, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 167 'getelementptr' 'mat_7_addr_20' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 168 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_20, align 4" [diagonalSum.cpp:67]   --->   Operation 168 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 169 [1/1] (0.00ns)   --->   "%mat_8_addr_21 = getelementptr [9 x i32]* %mat_8, i64 0, i64 5" [diagonalSum.cpp:67]   --->   Operation 169 'getelementptr' 'mat_8_addr_21' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 170 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_21, align 4" [diagonalSum.cpp:67]   --->   Operation 170 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 171 [1/1] (0.00ns)   --->   "%mat_5_addr_12 = getelementptr [9 x i32]* %mat_5, i64 0, i64 4" [diagonalSum.cpp:57]   --->   Operation 171 'getelementptr' 'mat_5_addr_12' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 172 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_12, align 4" [diagonalSum.cpp:57]   --->   Operation 172 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 173 [1/1] (0.00ns)   --->   "%mat_6_addr_12 = getelementptr [9 x i32]* %mat_6, i64 0, i64 4" [diagonalSum.cpp:57]   --->   Operation 173 'getelementptr' 'mat_6_addr_12' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 174 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_12, align 4" [diagonalSum.cpp:57]   --->   Operation 174 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 175 [1/1] (0.00ns)   --->   "%mat_7_addr_12 = getelementptr [9 x i32]* %mat_7, i64 0, i64 4" [diagonalSum.cpp:57]   --->   Operation 175 'getelementptr' 'mat_7_addr_12' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 176 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_12, align 4" [diagonalSum.cpp:57]   --->   Operation 176 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 177 [1/1] (0.00ns)   --->   "%mat_8_addr_12 = getelementptr [9 x i32]* %mat_8, i64 0, i64 4" [diagonalSum.cpp:57]   --->   Operation 177 'getelementptr' 'mat_8_addr_12' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 178 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_12, align 4" [diagonalSum.cpp:57]   --->   Operation 178 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 179 [1/1] (0.00ns)   --->   "%mat_6_addr_13 = getelementptr [9 x i32]* %mat_6, i64 0, i64 5" [diagonalSum.cpp:57]   --->   Operation 179 'getelementptr' 'mat_6_addr_13' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 180 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_13, align 4" [diagonalSum.cpp:57]   --->   Operation 180 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 181 [1/1] (0.00ns)   --->   "%mat_7_addr_13 = getelementptr [9 x i32]* %mat_7, i64 0, i64 5" [diagonalSum.cpp:57]   --->   Operation 181 'getelementptr' 'mat_7_addr_13' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 182 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_13, align 4" [diagonalSum.cpp:57]   --->   Operation 182 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_3 : Operation 183 [1/1] (0.00ns)   --->   "%mat_8_addr_13 = getelementptr [9 x i32]* %mat_8, i64 0, i64 5" [diagonalSum.cpp:57]   --->   Operation 183 'getelementptr' 'mat_8_addr_13' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_3 : Operation 184 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_13, align 4" [diagonalSum.cpp:57]   --->   Operation 184 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 4 <SV = 3> <Delay = 0.73>
+ST_4 : Operation 185 [1/1] (0.00ns)   --->   "%mat_0_addr_14 = getelementptr [9 x i32]* %mat_0, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 185 'getelementptr' 'mat_0_addr_14' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 186 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_14, align 4" [diagonalSum.cpp:67]   --->   Operation 186 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 187 [1/1] (0.00ns)   --->   "%mat_1_addr_15 = getelementptr [9 x i32]* %mat_1, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 187 'getelementptr' 'mat_1_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 188 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 188 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 189 [1/1] (0.00ns)   --->   "%mat_2_addr_16 = getelementptr [9 x i32]* %mat_2, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 189 'getelementptr' 'mat_2_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 190 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 190 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 191 [1/1] (0.00ns)   --->   "%mat_3_addr_17 = getelementptr [9 x i32]* %mat_3, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 191 'getelementptr' 'mat_3_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 192 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 192 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 193 [1/1] (0.00ns)   --->   "%mat_4_addr_18 = getelementptr [9 x i32]* %mat_4, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 193 'getelementptr' 'mat_4_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 194 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 194 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 195 [1/1] (0.00ns)   --->   "%mat_5_addr_19 = getelementptr [9 x i32]* %mat_5, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 195 'getelementptr' 'mat_5_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 196 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 196 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 197 [1/1] (0.00ns)   --->   "%mat_6_addr_20 = getelementptr [9 x i32]* %mat_6, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 197 'getelementptr' 'mat_6_addr_20' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 198 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_20, align 4" [diagonalSum.cpp:67]   --->   Operation 198 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 199 [1/1] (0.00ns)   --->   "%mat_7_addr_21 = getelementptr [9 x i32]* %mat_7, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 199 'getelementptr' 'mat_7_addr_21' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 200 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_21, align 4" [diagonalSum.cpp:67]   --->   Operation 200 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 201 [1/1] (0.00ns)   --->   "%mat_8_addr_22 = getelementptr [9 x i32]* %mat_8, i64 0, i64 6" [diagonalSum.cpp:67]   --->   Operation 201 'getelementptr' 'mat_8_addr_22' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 202 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_22, align 4" [diagonalSum.cpp:67]   --->   Operation 202 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 203 [1/1] (0.00ns)   --->   "%mat_0_addr_15 = getelementptr [9 x i32]* %mat_0, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 203 'getelementptr' 'mat_0_addr_15' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 204 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_15, align 4" [diagonalSum.cpp:67]   --->   Operation 204 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 205 [1/1] (0.00ns)   --->   "%mat_1_addr_16 = getelementptr [9 x i32]* %mat_1, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 205 'getelementptr' 'mat_1_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 206 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 206 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 207 [1/1] (0.00ns)   --->   "%mat_2_addr_17 = getelementptr [9 x i32]* %mat_2, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 207 'getelementptr' 'mat_2_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 208 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 208 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 209 [1/1] (0.00ns)   --->   "%mat_3_addr_18 = getelementptr [9 x i32]* %mat_3, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 209 'getelementptr' 'mat_3_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 210 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 210 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 211 [1/1] (0.00ns)   --->   "%mat_4_addr_19 = getelementptr [9 x i32]* %mat_4, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 211 'getelementptr' 'mat_4_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 212 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 212 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 213 [1/1] (0.00ns)   --->   "%mat_5_addr_20 = getelementptr [9 x i32]* %mat_5, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 213 'getelementptr' 'mat_5_addr_20' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 214 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_20, align 4" [diagonalSum.cpp:67]   --->   Operation 214 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 215 [1/1] (0.00ns)   --->   "%mat_6_addr_21 = getelementptr [9 x i32]* %mat_6, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 215 'getelementptr' 'mat_6_addr_21' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 216 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_21, align 4" [diagonalSum.cpp:67]   --->   Operation 216 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 217 [1/1] (0.00ns)   --->   "%mat_7_addr_22 = getelementptr [9 x i32]* %mat_7, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 217 'getelementptr' 'mat_7_addr_22' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 218 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_22, align 4" [diagonalSum.cpp:67]   --->   Operation 218 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 219 [1/1] (0.00ns)   --->   "%mat_8_addr_23 = getelementptr [9 x i32]* %mat_8, i64 0, i64 7" [diagonalSum.cpp:67]   --->   Operation 219 'getelementptr' 'mat_8_addr_23' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 220 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_23, align 4" [diagonalSum.cpp:67]   --->   Operation 220 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 221 [1/1] (0.00ns)   --->   "%mat_7_addr_14 = getelementptr [9 x i32]* %mat_7, i64 0, i64 6" [diagonalSum.cpp:57]   --->   Operation 221 'getelementptr' 'mat_7_addr_14' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 222 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_14, align 4" [diagonalSum.cpp:57]   --->   Operation 222 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 223 [1/1] (0.00ns)   --->   "%mat_8_addr_14 = getelementptr [9 x i32]* %mat_8, i64 0, i64 6" [diagonalSum.cpp:57]   --->   Operation 223 'getelementptr' 'mat_8_addr_14' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 224 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_14, align 4" [diagonalSum.cpp:57]   --->   Operation 224 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_4 : Operation 225 [1/1] (0.00ns)   --->   "%mat_8_addr_15 = getelementptr [9 x i32]* %mat_8, i64 0, i64 7" [diagonalSum.cpp:57]   --->   Operation 225 'getelementptr' 'mat_8_addr_15' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_4 : Operation 226 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_15, align 4" [diagonalSum.cpp:57]   --->   Operation 226 'store' <Predicate = (icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+
+State 5 <SV = 4> <Delay = 0.73>
+ST_5 : Operation 227 [1/1] (0.00ns)   --->   "%mat_0_addr_16 = getelementptr [9 x i32]* %mat_0, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 227 'getelementptr' 'mat_0_addr_16' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 228 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_0_addr_16, align 4" [diagonalSum.cpp:67]   --->   Operation 228 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 229 [1/1] (0.00ns)   --->   "%mat_1_addr_17 = getelementptr [9 x i32]* %mat_1, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 229 'getelementptr' 'mat_1_addr_17' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 230 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_1_addr_17, align 4" [diagonalSum.cpp:67]   --->   Operation 230 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 231 [1/1] (0.00ns)   --->   "%mat_2_addr_18 = getelementptr [9 x i32]* %mat_2, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 231 'getelementptr' 'mat_2_addr_18' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 232 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_2_addr_18, align 4" [diagonalSum.cpp:67]   --->   Operation 232 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 233 [1/1] (0.00ns)   --->   "%mat_3_addr_19 = getelementptr [9 x i32]* %mat_3, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 233 'getelementptr' 'mat_3_addr_19' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 234 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_3_addr_19, align 4" [diagonalSum.cpp:67]   --->   Operation 234 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 235 [1/1] (0.00ns)   --->   "%mat_4_addr_20 = getelementptr [9 x i32]* %mat_4, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 235 'getelementptr' 'mat_4_addr_20' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 236 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_4_addr_20, align 4" [diagonalSum.cpp:67]   --->   Operation 236 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 237 [1/1] (0.00ns)   --->   "%mat_5_addr_21 = getelementptr [9 x i32]* %mat_5, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 237 'getelementptr' 'mat_5_addr_21' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 238 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_5_addr_21, align 4" [diagonalSum.cpp:67]   --->   Operation 238 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 239 [1/1] (0.00ns)   --->   "%mat_6_addr_22 = getelementptr [9 x i32]* %mat_6, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 239 'getelementptr' 'mat_6_addr_22' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 240 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_6_addr_22, align 4" [diagonalSum.cpp:67]   --->   Operation 240 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 241 [1/1] (0.00ns)   --->   "%mat_7_addr_23 = getelementptr [9 x i32]* %mat_7, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 241 'getelementptr' 'mat_7_addr_23' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 242 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_7_addr_23, align 4" [diagonalSum.cpp:67]   --->   Operation 242 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 243 [1/1] (0.00ns)   --->   "%mat_8_addr_24 = getelementptr [9 x i32]* %mat_8, i64 0, i64 8" [diagonalSum.cpp:67]   --->   Operation 243 'getelementptr' 'mat_8_addr_24' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 244 [1/1] (0.73ns)   --->   "store i32 0, i32* %mat_8_addr_24, align 4" [diagonalSum.cpp:67]   --->   Operation 244 'store' <Predicate = (!icmp_ln49)> <Delay = 0.73> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.73> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 9> <RAM>
+ST_5 : Operation 245 [1/1] (0.00ns)   --->   "br label %.preheader.preheader.0"   --->   Operation 245 'br' <Predicate = (!icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 246 [1/1] (0.00ns)   --->   "br label %.preheader.preheader.0"   --->   Operation 246 'br' <Predicate = (icmp_ln49)> <Delay = 0.00>
+ST_5 : Operation 247 [1/1] (0.00ns)   --->   "ret void" [diagonalSum.cpp:87]   --->   Operation 247 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 2.78ns, clock uncertainty: 0.833ns.
+
+ <State 1>: 0.802ns
+The critical path consists of the following:
+	wire read on port 'upper_sum' (diagonalSum.cpp:44) [12]  (0 ns)
+	'icmp' operation ('icmp_ln49', diagonalSum.cpp:49) [15]  (0.802 ns)
+
+ <State 2>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('mat_0_addr_10', diagonalSum.cpp:67) [54]  (0 ns)
+	'store' operation ('store_ln67', diagonalSum.cpp:67) of constant 0 on array 'mat_0' [55]  (0.73 ns)
+
+ <State 3>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('mat_0_addr_12', diagonalSum.cpp:67) [90]  (0 ns)
+	'store' operation ('store_ln67', diagonalSum.cpp:67) of constant 0 on array 'mat_0' [91]  (0.73 ns)
+
+ <State 4>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('mat_0_addr_14', diagonalSum.cpp:67) [126]  (0 ns)
+	'store' operation ('store_ln67', diagonalSum.cpp:67) of constant 0 on array 'mat_0' [127]  (0.73 ns)
+
+ <State 5>: 0.73ns
+The critical path consists of the following:
+	'getelementptr' operation ('mat_0_addr_16', diagonalSum.cpp:67) [162]  (0 ns)
+	'store' operation ('store_ln67', diagonalSum.cpp:67) of constant 0 on array 'mat_0' [163]  (0.73 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

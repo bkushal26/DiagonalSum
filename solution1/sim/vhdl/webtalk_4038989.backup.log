@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Sep 19 07:12:44 2020
+# Process ID: 4038989
+# Current directory: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl
+# Command line: wbtcv -mode batch -source /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.dir/sum/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/webtalk.log
+# Journal file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/webtalk.jou
+#-----------------------------------------------------------
+source /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.dir/sum/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.dir/sum/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat Sep 19 07:12:47 2020. For additional details about this file, please refer to the WebTalk help file at /data/tools/Xilinx/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sat Sep 19 07:12:47 2020...

@@ -1,0 +1,462 @@
+
+*** Running vivado
+    with args -log bd_0_hls_inst_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source bd_0_hls_inst_0.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source bd_0_hls_inst_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/data/tools/Xilinx/Vivado/2019.1/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1484.938 ; gain = 2.969 ; free physical = 353 ; free virtual = 68404
+Command: synth_design -top bd_0_hls_inst_0 -part xcvu9p-flgc2104-1-e -directive sdx_optimization_effort_high -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvu9p'
+INFO: [Common 17-1540] The version limit for your license is '2020.04' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: [Device 21-403] Loading part xcvu9p-flgc2104-1-e
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4040206 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2485.164 ; gain = 96.715 ; free physical = 370 ; free virtual = 67393
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'bd_0_hls_inst_0' [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:160]
+INFO: [Synth 8-3491] module 'sum' declared at '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:12' bound to instance 'U0' of component 'sum' [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:399]
+INFO: [Synth 8-638] synthesizing module 'sum' [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:116]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:157]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:160]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:163]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:165]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:168]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:183]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:207]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:280]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:290]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:294]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:376]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:378]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:380]
+INFO: [Synth 8-3491] module 'makeZero' declared at '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:12' bound to instance 'grp_makeZero_fu_868' of component 'makeZero' [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:521]
+INFO: [Synth 8-638] synthesizing module 'makeZero' [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:97]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:123]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:126]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:145]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:158]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:167]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:172]
+INFO: [Synth 8-256] done synthesizing module 'makeZero' (1#1) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/makeZero.vhd:97]
+INFO: [Synth 8-256] done synthesizing module 'sum' (2#1) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ipshared/e1b2/hdl/vhdl/sum.vhd:116]
+INFO: [Synth 8-256] done synthesizing module 'bd_0_hls_inst_0' (3#1) [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/synth/bd_0_hls_inst_0.vhd:160]
+WARNING: [Synth 8-3331] design sum has unconnected port r[31]
+WARNING: [Synth 8-3331] design sum has unconnected port r[30]
+WARNING: [Synth 8-3331] design sum has unconnected port r[29]
+WARNING: [Synth 8-3331] design sum has unconnected port r[28]
+WARNING: [Synth 8-3331] design sum has unconnected port r[27]
+WARNING: [Synth 8-3331] design sum has unconnected port r[26]
+WARNING: [Synth 8-3331] design sum has unconnected port r[25]
+WARNING: [Synth 8-3331] design sum has unconnected port r[24]
+WARNING: [Synth 8-3331] design sum has unconnected port r[23]
+WARNING: [Synth 8-3331] design sum has unconnected port r[22]
+WARNING: [Synth 8-3331] design sum has unconnected port r[21]
+WARNING: [Synth 8-3331] design sum has unconnected port r[20]
+WARNING: [Synth 8-3331] design sum has unconnected port r[19]
+WARNING: [Synth 8-3331] design sum has unconnected port r[18]
+WARNING: [Synth 8-3331] design sum has unconnected port r[17]
+WARNING: [Synth 8-3331] design sum has unconnected port r[16]
+WARNING: [Synth 8-3331] design sum has unconnected port r[15]
+WARNING: [Synth 8-3331] design sum has unconnected port r[14]
+WARNING: [Synth 8-3331] design sum has unconnected port r[13]
+WARNING: [Synth 8-3331] design sum has unconnected port r[12]
+WARNING: [Synth 8-3331] design sum has unconnected port r[11]
+WARNING: [Synth 8-3331] design sum has unconnected port r[10]
+WARNING: [Synth 8-3331] design sum has unconnected port r[9]
+WARNING: [Synth 8-3331] design sum has unconnected port r[8]
+WARNING: [Synth 8-3331] design sum has unconnected port r[7]
+WARNING: [Synth 8-3331] design sum has unconnected port r[6]
+WARNING: [Synth 8-3331] design sum has unconnected port r[5]
+WARNING: [Synth 8-3331] design sum has unconnected port r[4]
+WARNING: [Synth 8-3331] design sum has unconnected port r[3]
+WARNING: [Synth 8-3331] design sum has unconnected port r[2]
+WARNING: [Synth 8-3331] design sum has unconnected port r[1]
+WARNING: [Synth 8-3331] design sum has unconnected port r[0]
+WARNING: [Synth 8-3331] design sum has unconnected port c[31]
+WARNING: [Synth 8-3331] design sum has unconnected port c[30]
+WARNING: [Synth 8-3331] design sum has unconnected port c[29]
+WARNING: [Synth 8-3331] design sum has unconnected port c[28]
+WARNING: [Synth 8-3331] design sum has unconnected port c[27]
+WARNING: [Synth 8-3331] design sum has unconnected port c[26]
+WARNING: [Synth 8-3331] design sum has unconnected port c[25]
+WARNING: [Synth 8-3331] design sum has unconnected port c[24]
+WARNING: [Synth 8-3331] design sum has unconnected port c[23]
+WARNING: [Synth 8-3331] design sum has unconnected port c[22]
+WARNING: [Synth 8-3331] design sum has unconnected port c[21]
+WARNING: [Synth 8-3331] design sum has unconnected port c[20]
+WARNING: [Synth 8-3331] design sum has unconnected port c[19]
+WARNING: [Synth 8-3331] design sum has unconnected port c[18]
+WARNING: [Synth 8-3331] design sum has unconnected port c[17]
+WARNING: [Synth 8-3331] design sum has unconnected port c[16]
+WARNING: [Synth 8-3331] design sum has unconnected port c[15]
+WARNING: [Synth 8-3331] design sum has unconnected port c[14]
+WARNING: [Synth 8-3331] design sum has unconnected port c[13]
+WARNING: [Synth 8-3331] design sum has unconnected port c[12]
+WARNING: [Synth 8-3331] design sum has unconnected port c[11]
+WARNING: [Synth 8-3331] design sum has unconnected port c[10]
+WARNING: [Synth 8-3331] design sum has unconnected port c[9]
+WARNING: [Synth 8-3331] design sum has unconnected port c[8]
+WARNING: [Synth 8-3331] design sum has unconnected port c[7]
+WARNING: [Synth 8-3331] design sum has unconnected port c[6]
+WARNING: [Synth 8-3331] design sum has unconnected port c[5]
+WARNING: [Synth 8-3331] design sum has unconnected port c[4]
+WARNING: [Synth 8-3331] design sum has unconnected port c[3]
+WARNING: [Synth 8-3331] design sum has unconnected port c[2]
+WARNING: [Synth 8-3331] design sum has unconnected port c[1]
+WARNING: [Synth 8-3331] design sum has unconnected port c[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 2541.887 ; gain = 153.438 ; free physical = 454 ; free virtual = 67408
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 2550.789 ; gain = 162.340 ; free physical = 455 ; free virtual = 67410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 2550.789 ; gain = 162.340 ; free physical = 455 ; free virtual = 67410
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/sum_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.srcs/sources_1/bd/bd_0/ip/bd_0_hls_inst_0/constraints/sum_ooc.xdc] for cell 'U0'
+Parsing XDC File [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2758.164 ; gain = 0.000 ; free physical = 354 ; free virtual = 67286
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2758.164 ; gain = 0.000 ; free physical = 353 ; free virtual = 67285
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 2758.164 ; gain = 369.715 ; free physical = 454 ; free virtual = 67387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvu9p-flgc2104-1-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 2758.164 ; gain = 369.715 ; free physical = 457 ; free virtual = 67390
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  /data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:23 . Memory (MB): peak = 2758.164 ; gain = 369.715 ; free physical = 457 ; free virtual = 67390
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 2758.164 ; gain = 369.715 ; free physical = 448 ; free virtual = 67381
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 13    
+	   5 Input     32 Bit       Adders := 3     
+	   3 Input     32 Bit       Adders := 7     
+	   9 Input     32 Bit       Adders := 2     
+	   7 Input     32 Bit       Adders := 4     
++---Registers : 
+	               32 Bit    Registers := 88    
+	               12 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 9     
+	  13 Input     12 Bit        Muxes := 1     
+	   6 Input      5 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 11    
+	   2 Input      4 Bit        Muxes := 6     
+	   6 Input      4 Bit        Muxes := 9     
+	   2 Input      3 Bit        Muxes := 24    
+	   2 Input      2 Bit        Muxes := 4     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 22    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module makeZero 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   6 Input      5 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 6     
+	   2 Input      3 Bit        Muxes := 24    
+	   2 Input      2 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+Module sum 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 13    
+	   5 Input     32 Bit       Adders := 3     
+	   3 Input     32 Bit       Adders := 7     
+	   9 Input     32 Bit       Adders := 2     
+	   7 Input     32 Bit       Adders := 4     
++---Registers : 
+	               32 Bit    Registers := 88    
+	               12 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 9     
+	  13 Input     12 Bit        Muxes := 1     
+	   6 Input      4 Bit        Muxes := 9     
+	   5 Input      4 Bit        Muxes := 9     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 22    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 6840 (col length:120)
+BRAMs: 4320 (col length: RAMB18 360 RAMB36 180)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3331] design sum has unconnected port r[31]
+WARNING: [Synth 8-3331] design sum has unconnected port r[30]
+WARNING: [Synth 8-3331] design sum has unconnected port r[29]
+WARNING: [Synth 8-3331] design sum has unconnected port r[28]
+WARNING: [Synth 8-3331] design sum has unconnected port r[27]
+WARNING: [Synth 8-3331] design sum has unconnected port r[26]
+WARNING: [Synth 8-3331] design sum has unconnected port r[25]
+WARNING: [Synth 8-3331] design sum has unconnected port r[24]
+WARNING: [Synth 8-3331] design sum has unconnected port r[23]
+WARNING: [Synth 8-3331] design sum has unconnected port r[22]
+WARNING: [Synth 8-3331] design sum has unconnected port r[21]
+WARNING: [Synth 8-3331] design sum has unconnected port r[20]
+WARNING: [Synth 8-3331] design sum has unconnected port r[19]
+WARNING: [Synth 8-3331] design sum has unconnected port r[18]
+WARNING: [Synth 8-3331] design sum has unconnected port r[17]
+WARNING: [Synth 8-3331] design sum has unconnected port r[16]
+WARNING: [Synth 8-3331] design sum has unconnected port r[15]
+WARNING: [Synth 8-3331] design sum has unconnected port r[14]
+WARNING: [Synth 8-3331] design sum has unconnected port r[13]
+WARNING: [Synth 8-3331] design sum has unconnected port r[12]
+WARNING: [Synth 8-3331] design sum has unconnected port r[11]
+WARNING: [Synth 8-3331] design sum has unconnected port r[10]
+WARNING: [Synth 8-3331] design sum has unconnected port r[9]
+WARNING: [Synth 8-3331] design sum has unconnected port r[8]
+WARNING: [Synth 8-3331] design sum has unconnected port r[7]
+WARNING: [Synth 8-3331] design sum has unconnected port r[6]
+WARNING: [Synth 8-3331] design sum has unconnected port r[5]
+WARNING: [Synth 8-3331] design sum has unconnected port r[4]
+WARNING: [Synth 8-3331] design sum has unconnected port r[3]
+WARNING: [Synth 8-3331] design sum has unconnected port r[2]
+WARNING: [Synth 8-3331] design sum has unconnected port r[1]
+WARNING: [Synth 8-3331] design sum has unconnected port r[0]
+WARNING: [Synth 8-3331] design sum has unconnected port c[31]
+WARNING: [Synth 8-3331] design sum has unconnected port c[30]
+WARNING: [Synth 8-3331] design sum has unconnected port c[29]
+WARNING: [Synth 8-3331] design sum has unconnected port c[28]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:26 . Memory (MB): peak = 2758.164 ; gain = 369.715 ; free physical = 426 ; free virtual = 67364
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:01:39 . Memory (MB): peak = 2994.508 ; gain = 606.059 ; free physical = 361 ; free virtual = 66906
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:01:40 . Memory (MB): peak = 3004.504 ; gain = 616.055 ; free physical = 357 ; free virtual = 66897
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:01:42 . Memory (MB): peak = 3040.129 ; gain = 651.680 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:01:43 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:01:43 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY8 |   188|
+|2     |LUT2   |   425|
+|3     |LUT3   |  1320|
+|4     |LUT4   |   251|
+|5     |LUT5   |    10|
+|6     |LUT6   |   889|
+|7     |FDRE   |  2833|
+|8     |FDSE   |     2|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------------+---------+------+
+|      |Instance                |Module   |Cells |
++------+------------------------+---------+------+
+|1     |top                     |         |  5918|
+|2     |  U0                    |sum      |  5918|
+|3     |    grp_makeZero_fu_868 |makeZero |   167|
++------+------------------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.070 ; gain = 657.621 ; free physical = 387 ; free virtual = 66891
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 64 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:01:33 . Memory (MB): peak = 3046.070 ; gain = 450.246 ; free physical = 414 ; free virtual = 66919
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:01:44 . Memory (MB): peak = 3046.074 ; gain = 657.621 ; free physical = 414 ; free virtual = 66919
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 188 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'bd_0_hls_inst_0' is not ideal for floorplanning, since the cellview 'sum' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3134.375 ; gain = 0.000 ; free physical = 367 ; free virtual = 66836
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+46 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:02:24 . Memory (MB): peak = 3134.375 ; gain = 1639.473 ; free physical = 468 ; free virtual = 66938
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3134.375 ; gain = 0.000 ; free physical = 468 ; free virtual = 66938
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP bd_0_hls_inst_0, cache-ID = 3e1c3559e013ef1b
+INFO: [Coretcl 2-1174] Renamed 2 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3158.391 ; gain = 0.000 ; free physical = 463 ; free virtual = 66937
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/data/kbhalera/varun_JetFinder/diagonalSum/solution1/impl/vhdl/project.runs/bd_0_hls_inst_0_synth_1/bd_0_hls_inst_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file bd_0_hls_inst_0_utilization_synth.rpt -pb bd_0_hls_inst_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Sep 19 07:18:08 2020...

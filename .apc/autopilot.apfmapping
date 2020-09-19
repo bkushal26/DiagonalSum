@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="diagonalSum.cpp" path="/data/kbhalera/varun_JetFinder/diagonalSum.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="main.cpp" path="/data/kbhalera/varun_JetFinder/main.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

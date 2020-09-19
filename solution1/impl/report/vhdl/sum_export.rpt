@@ -1,0 +1,21 @@
+
+
+Implementation tool: Xilinx Vivado v.2019.1
+Project:             diagonalSum
+Solution:            solution1
+Device target:       xcvu9p-flgc2104-1-e
+Report date:         Sat Sep 19 07:32:26 EDT 2020
+
+#=== Post-Implementation Resource usage ===
+CLB:            445
+LUT:           2556
+FF:            2835
+DSP:              0
+BRAM:             0
+SRL:              0
+URAM:             0
+#=== Final timing ===
+CP required:    2.778
+CP achieved post-synthesis:    1.979
+CP achieved post-implementation:    2.664
+Timing met

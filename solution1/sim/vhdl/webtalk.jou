@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Sep 19 07:13:00 2020
+# Process ID: 4039226
+# Current directory: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl
+# Command line: wbtcv -mode batch -source /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.dir/sum/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/webtalk.log
+# Journal file: /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/webtalk.jou
+#-----------------------------------------------------------
+source /data/kbhalera/varun_JetFinder/diagonalSum/solution1/sim/vhdl/xsim.dir/sum/webtalk/xsim_webtalk.tcl -notrace
